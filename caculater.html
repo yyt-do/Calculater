@@ -1,0 +1,87 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>简单计算器</title>
+</head>
+<style>
+    .sigh {
+        background-color: salmon;
+    }
+
+    .biaoge {
+        font-weight: bolder;
+        background: black;
+        font-size: 18px;
+        align-content: center;
+        
+    }
+</style>
+<script type="text/javascript">
+
+    var flag = true;
+    function func(str) {
+        var t = document.getElementById("t");
+
+        if (flag) {
+            t.value = "";  //清除没有输入时的0
+        }
+        flag = false;
+        t.value = t.value + str;   //将之前的内容和输入的内容相加，重新显示
+    }
+    function sum() {
+        var t = document.getElementById("t");
+        //将字符串转换为逻辑运算
+        t.value = eval(t.value);
+    }
+    function AC() {
+        var t = document.getElementById("t");
+        t.value = "0";
+        flag = true;
+
+    }
+</script>
+
+<body>
+    <!--    边框          内边距        外边距     -->
+    <table   class="biaoge" border="5" align="center" cellspacing="0" cellpadding="10">
+        <tr>
+            <td colspan="4">
+                <input type="text" value="0" id="t" />
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="number" value="7" onClick="func('7')" /></td>
+            <td><input type="button" class="number" value="8" onClick="func('8')" /></td>
+            <td><input type="button" class="number" value="9" onClick="func('9')" /></td>
+            <td><input type="button" class="sigh" value="+" onClick="func('+')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="number" value="4" onClick="func('4')" /></td>
+            <td><input type="button" class="number" value="5" onClick="func('5')" /></td>
+            <td><input type="button" class="number" value="6" onClick="func('6')" /></td>
+            <td><input type="button" class="sigh" value="-" onClick="func('-')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="number" value="1" onClick="func('1')" /></td>
+            <td><input type="button" class="number" value="2" onClick="func('2')" /></td>
+            <td><input type="button" class="number" value="3" onClick="func('3')" /></td>
+            <td><input type="button" class="sigh" value="X" onClick="func('X')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="number" value="0" onClick="func('0')" /></td>
+            <td><input type="button" class="sigh" value="." onClick="func('.')" /></td>
+            <td><input type="button" class="number" value="00" onClick="func('00')" /></td>
+            <td><input type="button" class="sigh" value="÷" onClick="func('÷')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="sigh" value="(" onClick="func('(')" /></td>
+            <td><input type="button" class="sigh" value=")" onClick="func(')')" /></td>
+            <td><input type="button" class="sigh" value="AC" onClick="AC()" /></td>
+            <td><input type="button" class="sigh" value="=" onClick="sum()" /></td>
+        </tr>
+    </table>
+</body>
+
+</html>
